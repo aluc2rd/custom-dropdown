@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MusicFlow - Музыкальная платформа</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header class="header">
+				<h1 class="title">🎵 MusicFlow</h1>
+				<p class="subtitle">Найди свой звук. Открой новый ритм.</p>
+			</header>
+
+			<main class="main-content">
+				<!-- Первый дропдаун - Выбор жанра -->
+				<div class="form-group">
+					<label class="form-label">🎧 Выберите музыкальный жанр:</label>
+					<div class="dropdown">
+						<button class="dropdown__button">Нажмите для выбора жанра</button>
+						<ul class="dropdown__list">
+							<li class="dropdown__list-item" data-value="lofi">🎵 Lofi Hip-Hop</li>
+							<li class="dropdown__list-item" data-value="synthwave">🌌 Synthwave & Retrowave</li>
+							<li class="dropdown__list-item" data-value="jazz">🎷 Джаз & Соул</li>
+							<li class="dropdown__list-item" data-value="electronic">⚡ Электронная музыка</li>
+							<li class="dropdown__list-item" data-value="rock">🎸 Рок & Альтернатива</li>
+							<li class="dropdown__list-item" data-value="classical">🎻 Классическая музыка</li>
+							<li class="dropdown__list-item" data-value="ambient">🌫 Эмбиент & Чиллаут</li>
+						</ul>
+						<input type="text" name="music-genre" value="" class="dropdown__input-hidden" />
+					</div>
+				</div>
+
+				<!-- Второй дропдаун - Настроение -->
+				<div class="form-group">
+					<label class="form-label">😌 Какое у вас настроение?</label>
+					<div class="dropdown">
+						<button class="dropdown__button">Выберите настроение</button>
+						<ul class="dropdown__list">
+							<li class="dropdown__list-item" data-value="focus">🎯 Фокус & Работа</li>
+							<li class="dropdown__list-item" data-value="relax">🛀 Релакс & Медитация</li>
+							<li class="dropdown__list-item" data-value="energy">💪 Энергия & Тренировка</li>
+							<li class="dropdown__list-item" data-value="creative">🎨 Творчество & Вдохновение</li>
+							<li class="dropdown__list-item" data-value="party">🎉 Вечеринка & Танцы</li>
+							<li class="dropdown__list-item" data-value="romantic">💖 Романтическое</li>
+						</ul>
+						<input type="text" name="music-mood" value="" class="dropdown__input-hidden" />
+					</div>
+				</div>
+
+				<!-- Третий дропдаун - Время суток -->
+				<div class="form-group">
+					<label class="form-label">⏰ Для какого времени?</label>
+					<div class="dropdown">
+						<button class="dropdown__button">Выберите время суток</button>
+						<ul class="dropdown__list">
+							<li class="dropdown__list-item" data-value="morning">🌅 Утро & Пробуждение</li>
+							<li class="dropdown__list-item" data-value="day">☀️ День & Активность</li>
+							<li class="dropdown__list-item" data-value="evening">🌇 Вечер & Закат</li>
+							<li class="dropdown__list-item" data-value="night">🌙 Ночь & Размышления</li>
+						</ul>
+						<input type="text" name="music-time" value="" class="dropdown__input-hidden" />
+					</div>
+				</div>
+
+				<!-- Кнопка генерации плейлиста -->
+				<div class="form-group">
+					<button class="generate-btn" id="generatePlaylist">🎶 Сгенерировать плейлист</button>
+				</div>
+
+				<!-- Блок результата -->
+				<div class="result-block" id="resultBlock" style="display: none">
+					<h3 class="result-title">🎵 Ваш идеальный плейлист:</h3>
+					<div class="playlist-preview" id="playlistPreview">
+						<!-- Сюда будет вставляться сгенерированный плейлист -->
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,291 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 30px;
+	font-family: 'Segoe UI', system-ui, sans-serif;
+	line-height: 1.5;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	min-height: 100vh;
+}
+
+.form-group-title {
+	font-size: 22px;
+	font-weight: 700;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color: #2d3748;
+}
+
+.form-group + .form-group {
+	margin-top: 15px;
+}
+
+/* *******************
+Dropdown Glassmorphism Styles
+******************* */
+
+.dropdown {
+	position: relative;
+	width: 100%;
+}
+
+.dropdown__button {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: left;
+
+	/* Glassmorphism эффект */
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 12px;
+	box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+
+	height: 50px;
+	padding: 15px 45px 15px 20px;
+	font-weight: 500;
+	font-size: 16px;
+	color: #2d3748;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.dropdown__button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+}
+
+.dropdown__button:focus,
+.dropdown__button--active {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Стрелка */
+.dropdown__button::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+
+	width: 0;
+	height: 0;
+	border-width: 8px 6px 0 6px;
+	border-color: #667eea transparent transparent transparent;
+	border-style: solid;
+
+	pointer-events: none;
+	transition: transform 0.3s ease;
+}
+
+.dropdown__button--active::after {
+	transform: translateY(-50%) rotate(180deg);
+}
+
+/* Список */
+.dropdown__list {
+	position: absolute;
+	left: 0;
+	top: 60px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+	/* Glassmorphism */
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+
+	border-radius: 12px;
+	width: 100%;
+	z-index: 1000;
+
+	/* Анимация */
+	opacity: 0;
+	transform: translateY(-10px);
+	visibility: hidden;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown__list--visible {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
+/* Элементы списка */
+.dropdown__list-item {
+	margin: 0;
+	padding: 15px 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	color: #2d3748;
+	position: relative;
+}
+
+.dropdown__list-item:first-child {
+	border-radius: 12px 12px 0 0;
+}
+
+.dropdown__list-item:last-child {
+	border-bottom: none;
+	border-radius: 0 0 12px 12px;
+}
+
+.dropdown__list-item:hover {
+	background: rgba(255, 255, 255, 0.4);
+	transform: translateX(8px);
+	color: #667eea;
+}
+
+.dropdown__input-hidden {
+	display: none;
+}
+
+/* Стили для стандартного select (опционально) */
+.select-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.select {
+	width: 100%;
+	border: 1px solid #7e9bbd;
+	border-radius: 6px;
+	background: white;
+	padding: 12px 35px 12px 15px;
+	outline: none;
+	cursor: pointer;
+}
+
+.select:focus {
+	outline: none;
+	box-shadow: 0px 0px 0px 1px #38577a, 0px 0px 10px #7e9bbd;
+}
+
+/* Добавьте это в style.css */
+
+/* Контейнер и общие стили */
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 10px;
+}
+
+.subtitle {
+	font-size: 1.1rem;
+	color: #4a5568;
+	opacity: 0.8;
+}
+
+/* Метки форм */
+.form-label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 600;
+	color: #2d3748;
+	font-size: 1rem;
+}
+
+/* Кнопка генерации */
+.generate-btn {
+	width: 100%;
+	padding: 15px 20px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(10px);
+}
+
+.generate-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.generate-btn:active {
+	transform: translateY(0);
+}
+
+/* Блок результата */
+.result-block {
+	margin-top: 30px;
+	padding: 25px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.result-title {
+	margin-top: 0;
+	margin-bottom: 15px;
+	color: #2d3748;
+	font-size: 1.3rem;
+}
+
+.playlist-preview {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 20px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+	.container {
+		padding: 15px;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.subtitle {
+		font-size: 1rem;
+	}
+}
+
+/* Анимация появления результата */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.result-block {
+	animation: fadeInUp 0.5s ease-out;
+}
